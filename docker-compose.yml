@@ -1,0 +1,27 @@
+version: "3.2"
+services:
+  server:
+    container_name: project_name
+    build:
+      context: . # Compile the container from the Dockerfile in this directory.
+      dockerfile: Dockerfile
+    hostname: localhost
+    build: ./
+    ports:
+    - 3000:3000
+    networks:
+      - project_network 
+  mysql:
+      image: mysql/mysql-server:5.7.24  # Build a new MySQL server from a pre-existing image
+      container_name: project_database
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
+        MYSQL_DATABASE: database_name
+      ports:
+        - "3306:3306" # Expose this port for access from outside the container
+      networks:
+        - project_network     # This should be the same network as the web backend.
+networks:
+  project_network:

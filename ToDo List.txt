@@ -1,0 +1,7 @@
+- Readme file update
+- Migration Setup for database
+- utils folder improvement
+- Helper folder improve
+- just using the js files without typescript for deployment ie (dist folder only).
+- creating and using only a docker file for complete automated deployment of database and backend . 
+- Docker environment setup and only build should upload on server
